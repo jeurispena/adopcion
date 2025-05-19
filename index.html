@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento de Adopción para Juego de Rol</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 0.75rem; /* rounded-lg */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            margin-top: 2rem; /* mt-8 */
+        }
+        .heading {
+            text-align: center;
+            font-size: 1.875rem; /* text-2xl */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 1.5rem; /* mb-6 */
+            color: #1e293b; /* text-gray-900 */
+        }
+        .section-heading {
+            font-size: 1.25rem; /* text-lg */
+            font-weight: 600; /* font-semibold */
+            margin-bottom: 1rem; /* mb-4 */
+            color: #334155; /* text-gray-700 */
+            border-bottom: 1px solid #e5e7eb; /* border-b */
+            padding-bottom: 0.5rem; /* pb-2 */
+        }
+        .form-group {
+            margin-bottom: 1rem; /* mb-4 */
+        }
+        .label {
+            display: block;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 500; /* font-medium */
+            color: #4b5563; /* text-gray-600 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+        .input {
+            width: 100%;
+            padding: 0.75rem; /* p-3 */
+            border-radius: 0.375rem; /* rounded-md */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            font-size: 1rem; /* text-base */
+            color: #374151; /* text-gray-800 */
+            transition: border-color 0.15s ease-in-out, shadow-sm 0.15s ease-in-out;
+        }
+        .input:focus {
+            outline: none;
+            border-color: #3b82f6; /* border-blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* ring-blue-500 ring-opacity-20 */
+        }
+        .textarea {
+            width: 100%;
+            padding: 0.75rem; /* p-3 */
+            border-radius: 0.375rem; /* rounded-md */
+            border: 1px solid #d1d5db; /* border-gray-300 */
+            font-size: 1rem; /* text-base */
+            color: #374151; /* text-gray-800 */
+            transition: border-color 0.15s ease-in-out, shadow-sm 0.15s ease-in-out;
+            min-height: 4rem;
+        }
+        .textarea:focus {
+            outline: none;
+            border-color: #3b82f6; /* border-blue-500 */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15); /* ring-blue-500 ring-opacity-20 */
+        }
+
+        .signatures {
+            margin-top: 2rem; /* mt-8 */
+        }
+        .signature-line {
+            /* border-bottom: 1px solid #6b7280;  border-gray-500 */
+            padding-bottom: 0.5rem; /* pb-2 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .signature-label {
+            font-size: 0.875rem; /* text-sm */
+            color: #6b7280; /* text-gray-500 */
+            text-align: center;
+            margin-top: 0.25rem; /* mt-1 */
+        }
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem; /* py-3 px-6 */
+            border-radius: 0.375rem; /* rounded-md */
+            background-color: #3b82f6; /* bg-blue-500 */
+            color: white;
+            font-size: 1rem; /* text-base */
+            font-weight: 600; /* font-semibold */
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* shadow-md */
+            border: none;
+        }
+        .button:hover {
+            background-color: #2563eb; /* bg-blue-700 */
+            transform: translateY(-1px);
+        }
+        .button:disabled {
+            background-color: #9ca3af; /* bg-gray-400 */
+            cursor: not-allowed;
+            opacity: 0.7;
+            transform: none;
+            box-shadow: none;
+        }
+
+        #preview-container {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            background-color: #f7fafc;
+            display: none;
+        }
+
+        #preview-container h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        #preview-content {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.75;
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="container">
+        <h1 class="heading">Documento de Adopción</h1>
+
+        <h2 class="section-heading">Antecedentes</h2>
+        <div class="form-group">
+            <label for="adopted_name" class="label">Nombre del Adoptado(a)</label>
+            <input type="text" id="adopted_name" class="input" value="Greysy [Apellido ficticio, si lo deseas]">
+        </div>
+        <div class="form-group">
+            <label for="adopted_dob" class="label">Fecha de Nacimiento del Adoptado(a)</label>
+            <input type="text" id="adopted_dob" class="input" value="[Inventar una fecha de nacimiento]">
+        </div>
+        <div class="form-group">
+            <label for="biological_parents" class="label">Padres Biológicos (si se conocen)</label>
+            <input type="text" id="biological_parents" class="input" value="[Opcional: Nombres ficticios o indicar 'Desconocidos']">
+        </div>
+        <div class="form-group">
+            <label for="adopter_name" class="label">Nombre del Adoptante</label>
+            <input type="text" id="adopter_name" class="input" value="J [Apellido ficticio, si lo deseas]">
+        </div>
+        <div class="form-group">
+            <label for="adopter_dob" class="label">Fecha de Nacimiento del Adoptante</label>
+            <input type="text" id="adopter_dob" class="input" value="[Inventar una fecha de nacimiento]">
+        </div>
+         <div class="form-group">
+            <label for="adopter_nationality" class="label">Nacionalidad del Adoptante</label>
+            <input type="text" id="adopter_nationality" class="input" value="[Inventar una nacionalidad]">
+        </div>
+        <div class="form-group">
+            <label for="adopter_profession" class="label">Profesión del Adoptante</label>
+            <input type="text" id="adopter_profession" class="input" value="[Inventar una profesión]">
+        </div>
+        <div class="form-group">
+            <label for="adopter_civil_status" class="label">Estado Civil del Adoptante</label>
+            <input type="text" id="adopter_civil_status" class="input" value="[Inventar un estado civil]">
+        </div>
+        <div class="form-group">
+            <label for="adopter_address" class="label">Dirección del Adoptante</label>
+            <input type="text" id="adopter_address" class="input" value="[Inventar una dirección ficticia]">
+        </div>
+
+        <h2 class="section-heading">Declaraciones</h2>
+        <ol class="list-decimal list-inside space-y-2">
+            <li>
+                <strong>Voluntad de Adopción:</strong> El Adoptante, <span id="declaration_adopter_name">J</span>, por medio de este documento, expresa su firme y libre voluntad de adoptar legalmente a <span id="declaration_adopted_name">Greysy</span>.
+            </li>
+            <li>
+                <strong>Consentimiento del Adoptado(a) (si aplica):</strong> Si <span id="declaration_adopted_name_consent">Greysy</span> tiene la edad suficiente para comprender y consentir la adopción según las reglas de tu juego de rol, se declara que \[<span id="consent_text">Greysy</span> manifiesta su libre y voluntaria aceptación de ser adoptada por J\]. (Si no aplica, eliminar esta declaración).
+            </li>
+            <li>
+                <strong>Motivación de la Adopción:</strong> El Adoptante desea brindar a <span id="declaration_adopted_name_motivation">Greysy</span> un hogar seguro, amoroso y estable, ofreciéndole las oportunidades y el apoyo necesarios para su pleno desarrollo.
+            </li>
+            <li>
+                <strong>Nuevos Vínculos Familiares:</strong> A partir de la firma de este documento, se establece un vínculo filial legal y emocional entre <span id="declaration_adopted_name_family">Greysy</span> y <span id="declaration_adopter_name_family">J</span>, con todos los derechos y responsabilidades que ello conlleva dentro del contexto de este juego de rol. <span id="declaration_adopted_name_status">Greysy</span> será considerada hija/o de J a todos los efectos dentro de la narrativa del juego.
+            </li>
+             <li>
+                <strong>Cambio de Nombre (opcional):</strong> \[Si desean que <span id="declaration_adopted_name_change">Greysy</span> cambie de nombre, incluir una cláusula aquí. Por ejemplo: "A partir de esta adopción, <span id="declaration_adopted_name_new_name">Greysy</span> será conocida como \[Nuevo Nombre Completo\]\]."\]
+            </li>
+        </ol>
+
+        <h2 class="section-heading">Efectos de la Adopción (Dentro del Contexto del Juego de Rol)</h2>
+        <ul class="list-disc list-inside space-y-2">
+            <li><span id="effect_adopted_name_family_2">Greysy</span> pasa a formar parte de la familia de <span id="effect_adopter_name_family_2">J</span>.</li>
+            <li><span id="effect_adopter_name_responsibility">J</span> asume la responsabilidad del cuidado, educación y bienestar de <span id="effect_adopted_name_responsibility">Greysy</span>.</li>
+            <li>Se establecen los lazos familiares y afectivos propios de la relación padre/madre-hijo/a entre <span id="effect_adopter_name_relation">J</span> y <span id="effect_adopted_name_relation">Greysy</span>.</li>
+            <li>\[Puedes añadir cualquier otro efecto relevante para tu juego de rol.\]</li>
+        </ul>
+
+        <div class="signatures">
+            <div class="form-group">
+                <label for="signature_adopter_name" class="label">Firma del Adoptante: J</label>
+                <input type="text" id="signature_adopter_name" class="input" value="">
+            </div>
+            <div class="form-group">
+                <label for="signature_adopted_name" class="label">Firma del Adoptado(a) (si aplica)</label>
+                <input type="text" id="signature_adopted_name" class="input" value="">
+            </div>
+            <div class="form-group">
+                <label for="signature_witness1" class="label">Firma de un Testigo 1 (si es necesario en tu juego)</label>
+                <input type="text" id="signature_witness1" class="input" value="">
+            </div>
+            <div class="form-group">
+                <label for="signature_witness2" class="label">Firma de un Testigo 2 (si es necesario en tu juego)</label>
+                <input type="text" id="signature_witness2" class="input" value="">
+            </div>
+        </div>
+
+        <p class="text-gray-500 text-sm mt-4">
+            <strong>Nota:</strong> Este es un documento ficticio creado para un juego de rol. No tiene validez legal en el mundo real.
+        </p>
+        <button id="preview-button" class="button mt-6">Vista Previa del Documento</button>
+
+        <div id="preview-container" class="mt-8 p-6 border rounded-lg bg-gray-50 border-gray-200" style="display: none;">
+            <h2 class="text-2xl font-semibold mb-4 text-gray-900">Vista Previa del Documento</h2>
+            <div id="preview-content" class="text-gray-700 leading-relaxed">
+                </div>
+        </div>
+
+    </div>
+
+    <script>
+        const adoptedNameInput = document.getElementById('adopted_name');
+        const adoptedDobInput = document.getElementById('adopted_dob');
+        const biologicalParentsInput = document.getElementById('biological_parents');
+        const adopterNameInput = document.getElementById('adopter_name');
+        const adopterDobInput = document.getElementById('adopter_dob');
+        const adopterNationalityInput = document.getElementById('adopter_nationality');
+        const adopterProfessionInput = document.getElementById('adopter_profession');
+        const adopterCivilStatusInput = document.getElementById('adopter_civil_status');
+        const adopterAddressInput = document.getElementById('adopter_address');
+
+        const declarationAdopterName = document.getElementById('declaration_adopter_name');
+        const declarationAdoptedName = document.getElementById('declaration_adopted_name');
+        const declarationAdoptedNameConsent = document.getElementById('declaration_adopted_name_consent');
+        const consentText = document.getElementById('consent_text');
+        const declarationAdoptedNameMotivation = document.getElementById('declaration_adopted_name_motivation');
+        const declarationAdopterNameFamily = document.getElementById('declaration_adopter_name_family');
+        const declarationAdoptedNameFamily = document.getElementById('declaration_adopted_name_family');
+        const declarationAdoptedNameStatus = document.getElementById('declaration_adopted_name_status');
+        const declarationAdoptedNameChange = document.getElementById('declaration_adopted_name_change');
+        const declarationAdoptedNameNewName = document.getElementById('declaration_adopted_name_new_name');
+
+        const effectAdopterNameFamily2 = document.getElementById('effect_adopter_name_family_2');
+        const effectAdoptedNameFamily2 = document.getElementById('effect_adopted_name_family_2');
+        const effectAdopterNameResponsibility = document.getElementById('effect_adopter_name_responsibility');
+        const effectAdoptedNameResponsibility = document.getElementById('effect_adopted_name_responsibility');
+        const effectAdopterNameRelation = document.getElementById('effect_adopter_name_relation');
+        const effectAdoptedNameRelation = document.getElementById('effect_adopted_name_relation');
+
+        const signatureAdopterNameInput = document.getElementById('signature_adopter_name');
+        const signatureAdoptedNameInput = document.getElementById('signature_adopted_name');
+        const signatureWitness1Input = document.getElementById('signature_witness1');
+        const signatureWitness2Input = document.getElementById('signature_witness2');
+
+
+        const previewButton = document.getElementById('preview-button');
+        const previewContainer = document.getElementById('preview-container');
+        const previewContent = document.getElementById('preview-content');
+
+        function updateDeclarations() {
+            declarationAdopterName.textContent = adopterNameInput.value;
+            declarationAdoptedName.textContent = adoptedNameInput.value;
+            declarationAdoptedNameConsent.textContent = adoptedNameInput.value;
+            consentText.textContent = adoptedNameInput.value;
+            declarationAdoptedNameMotivation.textContent = adoptedNameInput.value;
+            declarationAdopterNameFamily.textContent = adopterNameInput.value;
+            declarationAdoptedNameFamily.textContent = adoptedNameInput.value;
+            declarationAdoptedNameStatus.textContent = adoptedNameInput.value;
+            declarationAdoptedNameChange.textContent = adoptedNameInput.value;
+            declarationAdoptedNameNewName.textContent = adoptedNameInput.value;
+
+            effectAdopterNameFamily2.textContent = adopterNameInput.value;
+            effectAdoptedNameFamily2.textContent = adoptedNameInput.value;
+            effectAdopterNameResponsibility.textContent = adopterNameInput.value;
+            effectAdoptedNameResponsibility.textContent = adoptedNameInput.value;
+            effectAdopterNameRelation.textContent = adopterNameInput.value;
+            effectAdoptedNameRelation.textContent = adoptedNameInput.value;
+
+        }
+
+        adoptedNameInput.addEventListener('input', updateDeclarations);
+        adopterNameInput.addEventListener('input', updateDeclarations);
+
+
+        previewButton.addEventListener('click', () => {
+            let htmlContent = `
+                <h2 class="text-xl font-semibold mb-4">Documento de Adopción</h2>
+                <p><span class="font-semibold">Expediente Número:</span> [Dejar en blanco para el juego]</p>
+                <p><span class="font-semibold">Fecha:</span> 18 de mayo de 2025</p>
+                <p><span class="font-semibold">En la Ciudad de:</span> [Inventar una ciudad ficticia], República Dominicana</p>
+
+                <h3 class="text-lg font-semibold mt-4 mb-2">Antecedentes:</h3>
+                <p><span class="font-semibold">Adoptado(a):</span> ${adoptedNameInput.value}</p>
+                <p><span class="font-semibold">Fecha de Nacimiento del Adoptado(a):</span> ${adoptedDobInput.value}</p>
+                <p><span class="font-semibold">Padres Biológicos (si se conocen):</span> ${biologicalParentsInput.value}</p>
+                <p><span class="font-semibold">Adoptante:</span> ${adopterNameInput.value}</p>
+                 <p><span class="font-semibold">Fecha de Nacimiento del Adoptante:</span> ${adopterDobInput.value}</p>
+                <p><span class="font-semibold">Nacionalidad del Adoptante:</span> ${adopterNationalityInput.value}</p>
+                <p><span class="font-semibold">Profesión del Adoptante:</span> ${adopterProfessionInput.value}</p>
+                <p><span class="font-semibold">Estado Civil del Adoptante:</span> ${adopterCivilStatusInput.value}</p>
+                <p><span class="font-semibold">Dirección del Adoptante:</span> ${adopterAddressInput.value}</p>
+
+                <h3 class="text-lg font-semibold mt-4 mb-2">Declaraciones:</h3>
+                <ol class="list-decimal list-inside space-y-2">
+                    <li><strong>Voluntad de Adopción:</strong> El Adoptante, ${adopterNameInput.value}, por medio de este documento, expresa su firme y libre voluntad de adoptar legalmente a ${adoptedNameInput.value}.</li>
+                    <li><strong>Consentimiento del Adoptado(a) (si aplica):</strong> Si ${adoptedNameInput.value} tiene la edad suficiente para comprender y consentir la adopción según las reglas de tu juego de rol, se declara que \[${adoptedNameInput.value} manifiesta su libre y voluntaria aceptación de ser adoptada por J\]. (Si no aplica, eliminar esta declaración).</li>
+                    <li><strong>Motivación de la Adopción:</strong> El Adoptante desea brindar a ${adoptedNameInput.value} un hogar seguro, amoroso y estable, ofreciéndole las oportunidades y el apoyo necesarios para su pleno desarrollo.</li>
+                    <li><strong>Nuevos Vínculos Familiares:</strong> A partir de la firma de este documento, se establece un vínculo filial legal y emocional entre ${adoptedNameInput.value} y ${adopterNameInput.value}, con todos los derechos y responsabilidades que ello conlleva dentro del contexto de este juego de rol. ${adoptedNameInput.value} será considerada hija/o de J a todos los efectos dentro de la narrativa del juego.</li>
+                     <li><strong>Cambio de Nombre (opcional):</strong> \[Si desean que ${adoptedNameInput.value} cambie de nombre, incluir una cláusula aquí. Por ejemplo: "A partir de esta adopción, Greysy será conocida como \[Nuevo Nombre Completo\]\]."\]
+                </ol>
+
+                <h3 class="text-lg font-semibold mt-4 mb-2">Efectos de la Adopción (Dentro del Contexto del Juego de Rol):</h3>
+                <ul class="list-disc list-inside space-y-2">
+                    <li>${adoptedNameInput.value} pasa a formar parte de la familia de ${adopterNameInput.value}.</li>
+                    <li>${adopterNameInput.value} asume la responsabilidad del cuidado, educación y bienestar de ${adoptedNameInput.value}.</li>
+                    <li>Se establecen los lazos familiares y afectivos propios de la relación padre/madre-hijo/a entre ${adopterNameInput.value} y ${adoptedNameInput.value}.</li>
+                    <li>\[Puedes añadir cualquier otro efecto relevante para tu juego de rol.\]</li>
+                </ul>
+
+                <div class="mt-8">
+                    <div class="form-group">
+                        <label class="label">Firma del Adoptante: J</label>
+                        <div class="border-b pb-2 mb-6">${signatureAdopterNameInput.value}</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Firma del Adoptado(a) (si aplica)</label>
+                        <div class="border-b pb-2 mb-6">${signatureAdoptedNameInput.value}</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Firma de un Testigo 1 (si es necesario en tu juego)</label>
+                        <div class="border-b pb-2 mb-6">${signatureWitness1Input.value}</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="label">Firma de un Testigo 2 (si es necesario en tu juego)</label>
+                        <div class="border-b pb-2 mb-6">${signatureWitness2Input.value}</div>
+                    </div>
+                </div>
+
+                <p class="text-gray-500 text-sm mt-4">
+                    <strong>Nota:</strong> Este es un documento ficticio creado para un juego de rol. No tiene validez legal en el mundo real.
+                </p>
+            `;
+            previewContent.innerHTML = htmlContent;
+            previewContainer.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
